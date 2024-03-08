@@ -20,7 +20,7 @@ function App() {
             <PageTitle title={"This is APP component"} />
 
             <UncontrolledAccordion titleValue={"Menu"} />
-            <Accordion titleValue={"Users"} collapsed={accordionCollapsed} onChange={ () => { setAccordionCollapsed(!accordionCollapsed)  } }/>
+            <Accordion titleValue={"Users"} collapsed={accordionCollapsed} onChange={() => { setAccordionCollapsed(!accordionCollapsed); } } items={[]} onClick={ () => {}}/>
 
             {/* <UncontrolledRating  onChange={}/> */}
             <Rating value={ratingValue} onClick={setRatingValue}/>
