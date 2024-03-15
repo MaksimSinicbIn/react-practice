@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Select }  from './Select';
-import { FormEvent, useRef, useState } from 'react';
+import { action } from '@storybook/addon-actions';
+import { useState } from 'react';
 
 export default {
     component: Select,
@@ -13,21 +14,26 @@ const items = [
     { title: 'Viktor', value: 4 }
 ]
 
-export const ModeChangeSelect = () => {
-    const [currentValue, setCurrentValue] = useState<number | undefined>(1)
-    const onChangeHandler = (v: number) => {
-        setCurrentValue(v)
-    }
-    const onClickHandler = () => {
-        setCurrentValue(currentValue)
-    }
+export const WithValue = () => {
+    const [value, setValue] = useState(2)
 
     return (
         <Select
-            value={currentValue}
+            onChange={setValue}
+            value={value}
             items={items}
-            onChange={onChangeHandler}
-            onClick={onClickHandler}
+        />
+    );
+};
+
+export const WithoutValue = () => {
+    const [value, setValue] = useState(null)
+
+    return (
+        <Select
+            value={value}
+            onChange={setValue}
+            items={items}
         />
     );
 };
